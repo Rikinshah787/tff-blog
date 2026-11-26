@@ -324,4 +324,32 @@ kill -INT $(lsof -t -iTCP:8790 -sTCP:LISTEN)</code></pre></div>
 .reader-comments .cta { display: inline-block; padding: 8px 14px; border-radius: 6px; background: #2563EB; color: #fff; text-decoration: none; }
 </style>
 <!-- comments:end -->
+<!-- highlight:start -->
+<button id="hl-btn" type="button" hidden style="position:fixed;z-index:9999;padding:6px 12px;border:0;border-radius:6px;background:#2563EB;color:#fff;font-size:14px;cursor:pointer">Comment on this</button>
+<script>
+(function () {
+  var btn = document.getElementById("hl-btn");
+  var FORM = "https://app.notion.com/p/42433e00e2b781c5b653ec25fd61786c?v=42433e00e2b781ca9c64000c273a36ac";
+  var quote = "";
+  function show() {
+    var sel = window.getSelection();
+    var text = sel ? sel.toString().trim() : "";
+    if (text.length < 5 || text.length > 400 || !FORM) { btn.hidden = true; return; }
+    quote = text;
+    var r = sel.getRangeAt(0).getBoundingClientRect();
+    btn.style.left = Math.max(8, r.left + r.width / 2 - 60) + "px";
+    btn.style.top = (r.top - 40) + "px";
+    btn.hidden = false;
+  }
+  document.addEventListener("mouseup", function (e) { if (e.target !== btn) setTimeout(show, 0); });
+  btn.addEventListener("click", function () {
+    var copied = "\u201C" + quote + "\u201D";
+    if (navigator.clipboard) { navigator.clipboard.writeText(copied).catch(function () {}); }
+    window.open(FORM, "_blank", "noopener");
+    btn.textContent = "Quote copied. Paste it in the Where box";
+    setTimeout(function () { btn.hidden = true; btn.textContent = "Comment on this"; }, 2500);
+  });
+})();
+</script>
+<!-- highlight:end -->
 </body></html>
