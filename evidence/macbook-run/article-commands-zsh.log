@@ -1,0 +1,94 @@
+===== BLOCK 0 =====
+200
+===== BLOCK 1 =====
+===== BLOCK 2 =====
+curl: (22) The requested URL returned error: 409
+{
+  "id": null,
+  "name": null
+}
+===== BLOCK 3 =====
+{
+  "iteration_limit": 3,
+  "sandbox": {
+    "enabled": false,
+    "file_downloads": true
+  },
+  "dynamic_sub_agents": {
+    "enabled": false
+  },
+  "context_management": {
+    "compaction": {
+      "enabled": true
+    },
+    "large_tool_response": {
+      "enabled": true
+    }
+  },
+  "generative_ui": {
+    "enabled": false
+  },
+  "ask_user_questions": {
+    "enabled": false
+  },
+  "web_search": {
+    "enabled": false
+  },
+  "memory": {
+    "enabled": false
+  }
+}
+===== BLOCK 4 =====
+01m838vz6411mecymmb9xcy59v
+===== BLOCK 5 =====
+===== BLOCK 6 =====
+**Observations**
+- Standalone mode is enabled: “**Standalone mode: executor peering disabled and Redis unused**”
+- Authentication is disabled: “**Auth is disabled; browser login is off**”
+- The agent server is bound to localhost on port 8790 and advertises docs at `/api/v1/docs`: “**Agent server listening on http://127.0.0.1:8790 (docs at /api/v1/docs)**”
+
+**Unknowns / unverified**
+- Whether the executor is actually functioning, since the log only says peering is disabled.
+- Whether Redis is merely unused in this mode or fully unavailable/healthy.
+- Whether any API requests, model calls, or code execution succeeded; a listening HTTP server does not prove those ran.
+- Whether the docs endpoint is reachable and serving correctly.
+- Whether the server is healthy beyond binding to the port.
+
+**Next checks**
+1. Send a simple health or status request to the server.
+2. Open `/api/v1/docs` and confirm the API is responding.
+3. Check for subsequent logs showing startup completion, worker initialization, or a first successful request.
+===== BLOCK 7 =====
+{
+  "status": "done",
+  "previous_turn_id": null,
+  "finish": "stop",
+  "usage": {
+    "input_tokens": 289,
+    "output_tokens": 237,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "input_tokens_breakdown": {
+      "harness": 213,
+      "skills": 0,
+      "instructions": 55,
+      "tool_definitions": 0,
+      "messages": 21
+    }
+  }
+}
+===== BLOCK 8 =====
+The line is:
+
+“**Standalone mode: executor peering disabled and Redis unused**”
+
+It explicitly says Redis is unused.
+===== BLOCK 9 =====
+in=289 messages=21 out=237
+in=542 messages=274 out=29
+===== BLOCK 10 =====
+The line is:
+
+“**Auth is disabled; browser login is off**”
+
+It indicates users do not need to log in via the browser.

@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-19",
+  "purpose": "Fresh-VM verification for Getting started with TrueForge in 10 minutes",
+  "vm": {
+    "name": "trueforge-clean",
+    "manager": "Lima 2.3.0",
+    "driver": "Apple Virtualization.framework (vz)",
+    "os": "Ubuntu 24.04.5 LTS",
+    "architecture": "aarch64",
+    "cpus": 2,
+    "memory_gib": 4,
+    "disk_gib": 20,
+    "host_directory_mounts": [],
+    "image": "https://cloud-images.ubuntu.com/releases/noble/release-20261017/ubuntu-24.04-server-cloudimg-arm64.img",
+    "image_sha256": "50e24e1fb79e89116e939d90aa7738f7af48c442fa1bc2510131e0b39c50348e",
+    "create_download_boot_elapsed_seconds": 40.11
+  },
+  "software": {
+    "node": "24.22.3",
+    "npm": "11.19.1",
+    "trueforge": "0.185.1",
+    "install_elapsed_seconds": 32.29
+  },
+  "network": {
+    "guest_bind": "127.0.0.1:8790",
+    "host_forward": "127.0.0.1:18792",
+    "public_exposure": false
+  },
+  "checks": {
+    "fresh_guest_initially_has_node": false,
+    "node_archive_checksum": "passed",
+    "guest_api_docs_http": 200,
+    "host_forwarded_ui_http": 200,
+    "provider_catalog_rendered": true,
+    "local_sandbox_fallback": "unavailable: bubblewrap, socat, and ripgrep missing",
+    "openai_model_completion": "passed: two completed model turns",
+    "saved_agent": "passed: API creation, server readback, UI registry and chat",
+    "persisted_conversation": "passed: full browser reload, follow-up, Sessions navigation and reopen",
+    "ui_agent_save": "not verified: used API after editor automation failed",
+    "process_restart_recovery": "not tested",
+    "vm_restart_recovery": "not tested",
+    "sandbox_execution": "not tested; disabled for this text-only agent",
+    "bootstrap_x64_execution": "not tested; checksum verified"
+  },
+  "timing_scope": "Measured VM provisioning and package installation are separate phases. They do not establish a complete ten-minute onboarding run.",
+  "model_run": {
+    "provider": "openai",
+    "model": "openai/gpt-5-4-mini",
+    "agent_id": "01m7v02myxyrfegc3dwhqxvrck",
+    "session_id": "01m7v04w8nktr9jvg8123sn1hc",
+    "turns": [
+      {
+        "id": "01m7v04waybdeg099t1cahyh43",
+        "previous_turn_id": null,
+        "status": "done",
+        "created_at": "2026-11-19T22:51:57.699Z",
+        "completed_at": "2026-11-19T22:52:00.708Z",
+        "server_turn_seconds": 3.009,
+        "input_tokens": 289,
+        "output_tokens": 288
+      },
+      {
+        "id": "01m7v06nwkbgwj4zhbjzezdyf0",
+        "previous_turn_id": "01m7v04waybdeg099t1cahyh43",
+        "status": "done",
+        "created_at": "2026-11-19T22:52:56.627Z",
+        "completed_at": "2026-11-19T22:52:57.685Z",
+        "server_turn_seconds": 1.058,
+        "input_tokens": 593,
+        "output_tokens": 28
+      }
+    ]
+  }
+}

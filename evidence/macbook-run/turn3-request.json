@@ -1,0 +1,9 @@
+{
+  "input": [
+    {
+      "type": "user.message",
+      "content": "What did I ask you in my very first message? Answer in one sentence."
+    }
+  ],
+  "stream": false
+}

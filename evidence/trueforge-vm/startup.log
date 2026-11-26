@@ -1,0 +1,40 @@
+14:43:07 info Sentry is not enabled (SENTRY_ENABLED=false or local-like NODE_ENV)
+
+████████╗██████╗ ██╗   ██╗███████╗███████╗ ██████╗ ██████╗  ██████╗ ███████╗
+╚══██╔══╝██╔══██╗██║   ██║██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝ ██╔════╝
+   ██║   ██████╔╝██║   ██║█████╗  █████╗  ██║   ██║██████╔╝██║  ███╗█████╗  
+   ██║   ██╔══██╗██║   ██║██╔══╝  ██╔══╝  ██║   ██║██╔══██╗██║   ██║██╔══╝  
+   ██║   ██║  ██║╚██████╔╝███████╗██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗
+   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
+  TrueForge v0.185.1  ·  standalone
+
+┌─ WARNING ────────────────────────────────────────────────────────────────┐
+│ Standalone mode is intended for local use on your own machine. It is not │
+│ hardened for production or shared internet access — please keep it on    │
+│ localhost. We cannot take responsibility for data loss or unauthorized   │
+│ access if this mode is used beyond that.                                 │
+└──────────────────────────────────────────────────────────────────────────┘
+14:43:07 warn Local sandbox fallback is unavailable {"reason":"SRT host dependencies missing (linux: bubblewrap, socat, ripgrep): bubblewrap binary not found. Either it is not installed or not on PATH; socat binary not found. Either it is not installed or not on PATH; ripgrep binary not found. Either it is not installed or not on PATH","platform":"linux","attempts":[{"kind":"host","name":"bwrap"},{"kind":"host","name":"socat"},{"kind":"host","name":"rg"}]}
+name-hyphen-only migration [model_provider]: total=0 updated=0
+name-hyphen-only migration [skill]: total=0 updated=0
+name-hyphen-only migration [mcp_server]: total=0 updated=0
+name-hyphen-only migration [schedule.name]: total=0 updated=0
+name-hyphen-only migration [agent]: total=0 updated=0
+name-hyphen-only migration: nothing to rename
+14:43:07 info Standalone mode: sqlite at /home/rikin.guest/trueforge-starter/data/db.sqlite
+14:43:07 info Standalone mode: executor peering disabled and Redis unused
+14:43:07 warn Auth is disabled; browser login is off
+14:43:07 info Serving frontend from /home/rikin.guest/trueforge-starter/node_modules/@truefoundry/trueforge/dist/_frontend
+14:43:07 info Agent server listening on http://127.0.0.1:8790 (docs at /api/v1/docs)
+14:43:07 info Controller started {"loops":["schedule-dispatch","sandbox-env-build","memory-ingest"]}
+14:43:07 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"f2098112-810f-4b1b-96ba-25dd3cc63822"}
+14:43:12 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"c929f7d8-98f3-458f-99f7-edda71ac001d"}
+14:43:13 info request {"method":"GET","path":"/api/v1/docs","status":200,"duration_ms":1,"request_id":"9e21e3d4-2396-4955-83f5-f7f1772f78a0"}
+14:43:13 info request {"method":"GET","path":"/","status":200,"duration_ms":0,"request_id":"1f537c93-1a4e-4cc4-801b-8e4c59db21e0"}
+14:43:13 info request {"method":"GET","path":"/api/v1/auth/me","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"dba17cba-709c-4018-abab-c83919c59d8a"}
+14:43:13 info request {"method":"GET","path":"/api/v1/models","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"acebbd35-6afe-4260-b983-fc0cc9a4e85b"}
+14:43:13 info request {"method":"GET","path":"/api/v1/capabilities","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"a32921d7-1858-4672-b385-dfa815baafda"}
+14:43:14 info request {"method":"GET","path":"/api/v1/models","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"02c0cdad-b561-4fa8-9501-ee682c241fb9"}
+14:43:14 info request {"method":"GET","path":"/api/v1/sessions","status":200,"duration_ms":8,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"b3f6b414-ebb3-462d-8b4b-4cfe67cfbc46"}
+14:43:14 info request {"method":"GET","path":"/api/v1/skills","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"3f1be569-aa44-4cb1-b323-37f6010d305c"}
+14:43:14 info request {"method":"GET","path":"/api/v1/catalogs/model-providers","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"d41aa446-f976-4b0e-8b51-ab4367dd4f50"}

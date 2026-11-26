@@ -1,0 +1,152 @@
+19:50:21 info Sentry is not enabled (SENTRY_ENABLED=false or local-like NODE_ENV)
+
+████████╗██████╗ ██╗   ██╗███████╗███████╗ ██████╗ ██████╗  ██████╗ ███████╗
+╚══██╔══╝██╔══██╗██║   ██║██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝ ██╔════╝
+   ██║   ██████╔╝██║   ██║█████╗  █████╗  ██║   ██║██████╔╝██║  ███╗█████╗  
+   ██║   ██╔══██╗██║   ██║██╔══╝  ██╔══╝  ██║   ██║██╔══██╗██║   ██║██╔══╝  
+   ██║   ██║  ██║╚██████╔╝███████╗██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗
+   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
+  TrueForge v0.185.1  ·  standalone
+
+┌─ WARNING ────────────────────────────────────────────────────────────────┐
+│ Standalone mode is intended for local use on your own machine. It is not │
+│ hardened for production or shared internet access — please keep it on    │
+│ localhost. We cannot take responsibility for data loss or unauthorized   │
+│ access if this mode is used beyond that.                                 │
+└──────────────────────────────────────────────────────────────────────────┘
+19:50:21 warn Local sandbox fallback is unavailable {"reason":"No usable Python 3 interpreter in sandbox (python3 or python via command -v): python3: resolved=/usr/bin/python3 executable=/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9 exit=134 stderr=\"dyld[18983]: Library not loaded: @executable_path/../Python3\\n  Referenced from: <AA31CF81-0AB6-3117-9858-6736E800888E> /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9\\n  Reason: tried: '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Python3' (blocked by sandbox)\\n/bin/bash: line 1: 18983 Abort trap: 6           '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9' -c 'import sys; raise SystemExit(0 if sys.version_info[0] == 3 else 1)'\\n\"; python binary not found. Either it is not installed or not on PATH","platform":"darwin","attempts":[{"kind":"python","name":"python3","resolved":"/usr/bin/python3","executable":"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9","exitCode":134,"stdout":"","stderr":"dyld[18983]: Library not loaded: @executable_path/../Python3\n  Referenced from: <AA31CF81-0AB6-3117-9858-6736E800888E> /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9\n  Reason: tried: '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Python3' (blocked by sandbox)\n/bin/bash: line 1: 18983 Abort trap: 6           '/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9' -c 'import sys; raise SystemExit(0 if sys.version_info[0] == 3 else 1)'\n","timedOut":false},{"kind":"python","name":"python"}]}
+name-hyphen-only migration [model_provider]: total=0 updated=0
+name-hyphen-only migration [skill]: total=0 updated=0
+name-hyphen-only migration [mcp_server]: total=0 updated=0
+name-hyphen-only migration [schedule.name]: total=0 updated=0
+name-hyphen-only migration [agent]: total=0 updated=0
+name-hyphen-only migration: nothing to rename
+19:50:21 info Standalone mode: sqlite at /Users/rikin/trueforge-starter/data/db.sqlite
+19:50:21 info Standalone mode: executor peering disabled and Redis unused
+19:50:21 warn Auth is disabled; browser login is off
+19:50:21 info Serving frontend from /Users/rikin/trueforge-starter/node_modules/@truefoundry/trueforge/dist/_frontend
+19:50:21 info Agent server listening on http://127.0.0.1:8790 (docs at /api/v1/docs)
+19:50:21 info Controller started {"loops":["schedule-dispatch","sandbox-env-build","memory-ingest"]}
+19:50:21 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"1705b59c-5a2b-4121-97a0-923e7919da7c"}
+19:50:22 info request {"method":"GET","path":"/api/v1/docs","status":200,"duration_ms":1,"request_id":"ada29de3-d427-43e7-a41e-5617e6e02d08"}
+19:50:22 info request {"method":"GET","path":"/","status":200,"duration_ms":0,"request_id":"9a2c33cd-0ef5-48cd-b530-3363f3bec9fe"}
+19:50:26 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"ef20fac4-f8a9-4465-b6bb-fd199c714d70"}
+19:50:31 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":0,"request_id":"d08782bd-acc0-4a8e-9a1e-27ad208e8c47"}
+19:50:36 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":6,"request_id":"efbe050b-a45c-42f0-95fc-20376bc13420"}
+19:50:37 info request {"method":"GET","path":"/api/v1/docs","status":200,"duration_ms":1,"request_id":"99f8de7b-24a5-4afa-925d-1fa485f51373"}
+19:50:37 info request {"method":"GET","path":"/api/v1/openapi.json","status":200,"duration_ms":46,"request_id":"1fac05cd-86f8-410e-b9bc-ec58dad28209"}
+19:50:37 info request {"method":"GET","path":"/api/v1/docs/openapi.json","status":404,"duration_ms":0,"request_id":"85694ab2-0ce5-4f46-a37a-c32347de4daa"}
+19:50:37 info request {"method":"GET","path":"/openapi.json","status":404,"duration_ms":1,"request_id":"f306e5a0-3526-4b25-ad90-eb32ad33d493"}
+19:50:37 info request {"method":"GET","path":"/api/v1/docs/json","status":404,"duration_ms":0,"request_id":"34bb9bff-0050-4dea-8dec-ba0876c276df"}
+19:50:41 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":3,"request_id":"97103947-18e4-45e1-8b3d-1a2ef5715d27"}
+19:50:44 info request {"method":"GET","path":"/api/v1/openapi.json","status":200,"duration_ms":19,"request_id":"9467cc01-41cf-4a63-ba36-071a048a7c20"}
+19:50:46 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"80311caa-9923-4c1a-ba5a-3e0c3c41c80c"}
+19:50:51 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"524a4095-df42-4125-bd61-6983eaa74637"}
+19:50:53 info request {"method":"GET","path":"/api/v1/models","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"2776c63b-72a7-4216-be64-30bf906c1c3d"}
+19:50:53 info request {"method":"GET","path":"/api/v1/catalogs/model-providers","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"7aed720a-2b33-4fc2-8e83-0b5a2e38aa8e"}
+19:50:56 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"8b6d6d23-648b-4b57-b2a5-aa47178888f6"}
+19:50:57 info request {"method":"GET","path":"/api/v1/settings/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"4adba07a-4743-4117-b17e-a425fdbee872"}
+19:51:01 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"fd1ddfe2-9411-4410-a4ed-a9449743667e"}
+19:51:04 warn Client API error {"method":"POST","path":"/api/v1/agents","status":422,"error":"Unknown model \"openai/gpt-5-4-mini\" — provider not configured","tenant_id":"default","request_id":"61735b02-bc4e-4bd6-b690-e61f3ff6318f"}
+Error: Unknown model "openai/gpt-5-4-mini" — provider not configured
+    at getModelDetails (file:///Users/rikin/trueforge-starter/node_modules/@truefoundry/trueforge/dist/main.js:12831:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async validateAgentSpec (file:///Users/rikin/trueforge-starter/node_modules/@truefoundry/trueforge/dist/main.js:12972:20)
+    at async createHandler (file:///Users/rikin/trueforge-starter/node_modules/@truefoundry/trueforge/dist/main.js:13336:5)
+    at async dispatch (file:///Users/rikin/trueforge-starter/node_modules/hono/dist/compose.js:35:11)
+    at async file:///Users/rikin/trueforge-starter/node_modules/hono/dist/validator/validator.js:60:10
+    at async dispatch (file:///Users/rikin/trueforge-starter/node_modules/hono/dist/compose.js:35:11)
+    at async mediaTypeGate (file:///Users/rikin/trueforge-starter/node_modules/@hono/zod-openapi/dist/index.mjs:123:6)
+    at async dispatch (file:///Users/rikin/trueforge-starter/node_modules/hono/dist/compose.js:35:11)
+    at async dispatch (file:///Users/rikin/trueforge-starter/node_modules/hono/dist/compose.js:35:11)
+19:51:04 info request {"method":"POST","path":"/api/v1/agents","status":422,"duration_ms":7,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"61735b02-bc4e-4bd6-b690-e61f3ff6318f"}
+19:51:06 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"cb138322-a7c0-407b-b4dc-f4b55dec6bab"}
+19:51:10 info request {"method":"GET","path":"/api/v1/docs","status":200,"duration_ms":0,"request_id":"ffe94ece-6803-4ac3-8167-1036c05c961e"}
+19:51:10 info request {"method":"GET","path":"/","status":200,"duration_ms":1,"request_id":"622ab9e4-cffb-4bd2-80b7-655e012775e2"}
+19:51:12 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":23,"request_id":"2b0fe131-ef28-4956-b058-d55f5a787f8f"}
+19:51:14 info request {"method":"GET","path":"/api/v1/auth/me","status":200,"duration_ms":3,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"59a8a548-bcb3-46bd-8f28-63f15e0ca1a0"}
+19:51:14 info request {"method":"GET","path":"/api/v1/models","status":200,"duration_ms":6,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"04c91c34-7f11-4038-a195-ac352ce77285"}
+19:51:14 info request {"method":"GET","path":"/api/v1/capabilities","status":200,"duration_ms":29,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"66b7a9ab-e42a-432c-b450-cefa56df52e2"}
+19:51:14 info request {"method":"GET","path":"/favicon.ico","status":404,"duration_ms":23,"request_id":"bd1405b5-006f-48f8-99c3-dd4c1d5bba7a"}
+19:51:14 info request {"method":"POST","path":"/api/internal/list-permissions","status":200,"duration_ms":12,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"0da5c57b-e922-44b7-8fe1-7e2e5704159e"}
+19:51:14 info request {"method":"GET","path":"/api/v1/capabilities","status":200,"duration_ms":6,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"ddc5d1af-3563-40c1-a8ac-6ef864270e9c"}
+19:51:14 info request {"method":"GET","path":"/api/v1/models","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"47ccb7e1-b6ee-491e-a241-d4046db445a6"}
+19:51:14 info request {"method":"GET","path":"/api/v1/mcp-servers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"07efabf0-875c-4c3e-935e-30ec31e7a835"}
+19:51:14 info request {"method":"GET","path":"/api/v1/sessions","status":200,"duration_ms":6,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"a2572296-f7bb-44a1-ad01-b7dd774ad3b7"}
+19:51:14 info request {"method":"GET","path":"/api/v1/catalogs/mcp-servers","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"caf0a798-2ee4-41ab-a99e-e588601e420b"}
+19:51:14 info request {"method":"GET","path":"/api/v1/catalogs/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"02a048c3-1371-4a4a-8bb9-54c7b4a83aea"}
+19:51:14 info request {"method":"GET","path":"/api/v1/skills","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"b8c52995-338d-45a7-9098-e5ef5b948bdd"}
+19:51:14 info request {"method":"GET","path":"/api/v1/auth/me","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"670a60ba-d6d6-47f2-874a-21f9585c6329"}
+19:51:14 info request {"method":"GET","path":"/api/v1/sandbox-environments","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"67a0c959-9f4e-4ac9-af86-999600ea6a3d"}
+19:51:14 info request {"method":"GET","path":"/api/v1/sandbox-environments","status":200,"duration_ms":3,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"674d9e29-8dcb-47fa-97f0-aecce9b50535"}
+19:51:15 info request {"method":"GET","path":"/api/v1/settings/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"c3d8ec7b-6ccf-49d7-90c0-1dede93f952f"}
+19:51:15 info request {"method":"GET","path":"/api/v1/catalogs/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"07f808fb-104a-47a7-9ef9-da7e318fc22c"}
+19:51:16 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"e2106683-9f8b-4f0c-adce-758e897f8714"}
+19:51:21 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":3,"request_id":"0883dcb2-e2dc-4825-aee9-6de608863a07"}
+19:51:26 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":0,"request_id":"66044477-3ed4-4420-9dc2-cf4c9d1a5c99"}
+19:51:31 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":3,"request_id":"3707db05-c2b8-49b1-82ec-3e4c5f860174"}
+19:51:36 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"6d969848-7f69-4bda-863f-34ca918bf9a5"}
+19:51:41 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"5eafe13b-7233-433d-b87a-6a22b6279b1f"}
+19:51:46 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"de834657-5481-4fed-a50a-a465e953ba4a"}
+19:51:51 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"c4a4a1f6-d29e-4d07-b7de-616f0b6cfa2a"}
+19:51:56 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"9f96228c-bf40-415c-8dce-aafb0d3617b0"}
+19:52:01 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"251452cb-cbac-4cbe-94e9-e4a3b371c328"}
+19:52:06 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"89d75c1a-fecc-49a5-87a6-726ed3f701c0"}
+19:52:11 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":3,"request_id":"c4fd0954-8aa8-4df5-af95-357e28cb0b54"}
+19:52:16 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"c82ce182-bbb2-4d6a-a4e9-855104196185"}
+19:52:19 info request {"method":"GET","path":"/settings","status":200,"duration_ms":11,"request_id":"d580826a-c53f-4cad-999f-fe6f00b578ee"}
+19:52:20 info request {"method":"GET","path":"/api/v1/models","status":200,"duration_ms":5,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"de4b6132-d03a-4079-9fa8-987c18ed4dbb"}
+19:52:20 info request {"method":"GET","path":"/api/v1/capabilities","status":200,"duration_ms":4,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"b44af05f-818f-435a-ba9e-4b3c1c83cb2a"}
+19:52:20 info request {"method":"POST","path":"/api/internal/list-permissions","status":200,"duration_ms":4,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"fb7d1e32-bccd-4ef7-8600-7f6c8e680a40"}
+19:52:20 info request {"method":"GET","path":"/api/v1/sessions","status":200,"duration_ms":4,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"89fecfe1-ce6f-4841-9b92-beec0e6bd51e"}
+19:52:20 info request {"method":"GET","path":"/api/v1/mcp-servers","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"95de413c-1df9-47e7-9102-4d6dae3bb95b"}
+19:52:20 info request {"method":"GET","path":"/api/v1/capabilities","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"3e32806e-aa2c-4308-bbd6-2228cf21529b"}
+19:52:20 info request {"method":"GET","path":"/api/v1/catalogs/mcp-servers","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"4552a3d7-c0ca-46c8-9d8e-db6482420c82"}
+19:52:20 info request {"method":"GET","path":"/api/v1/models","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"c34cb4f3-3a83-4ece-a2a9-f7f1152b03d6"}
+19:52:20 info request {"method":"GET","path":"/api/v1/catalogs/model-providers","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"aee000f3-7d44-49e9-917a-020d470aeafd"}
+19:52:20 info request {"method":"GET","path":"/api/v1/skills","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"64eaa47a-60b0-462a-9d5e-551d18b75633"}
+19:52:20 info request {"method":"GET","path":"/api/v1/auth/me","status":200,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"bc11bc4b-449c-4d37-a849-25f68ced549e"}
+19:52:20 info request {"method":"GET","path":"/api/v1/sandbox-environments","status":200,"duration_ms":6,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"466dd029-c448-4b03-a3bb-dc0b01085b4b"}
+19:52:20 info request {"method":"GET","path":"/api/v1/sandbox-environments","status":200,"duration_ms":29,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"9d65d082-d4b8-4894-ba80-298ff69175b6"}
+19:52:20 info request {"method":"GET","path":"/api/v1/settings/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"ffb25e88-a049-4fba-8ffd-0cdb421bde83"}
+19:52:20 info request {"method":"GET","path":"/api/v1/catalogs/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"74a4355b-4ca9-436a-843a-e8909cb9ee4c"}
+19:52:21 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"7e47a1bd-ce5d-460a-837f-7418d8b6a636"}
+19:52:24 info request {"method":"POST","path":"/api/v1/settings/model-providers","status":201,"duration_ms":31,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"a76af0fa-87bc-45cf-814f-50f98efb66e9"}
+19:52:24 info request {"method":"GET","path":"/api/v1/settings/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"367cc3a6-cdde-4521-b5a6-88ecce142567"}
+19:52:24 info request {"method":"GET","path":"/api/v1/catalogs/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"a54e38d7-7f24-4250-82d7-5ea170e1432b"}
+19:52:26 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"ee43bbeb-6a8b-49ce-94ad-e768d9b8ecae"}
+19:52:31 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"bbb0b00c-cc38-4dec-9f15-fa3705beb434"}
+19:52:36 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"60254593-4fab-4b3e-8845-5d33291ebc95"}
+19:52:41 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"dd896d08-813e-4719-a6bc-08693728cfc8"}
+19:52:46 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"b3feade2-bdef-4325-b4af-eea334607d40"}
+19:52:50 info request {"method":"GET","path":"/api/v1/settings/model-providers","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"4f155a31-9902-49ee-9d12-55c9919a198b"}
+19:52:50 info request {"method":"GET","path":"/api/v1/models","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"8eb7c7b9-5c98-49a1-afab-c48ee17e3c20"}
+19:52:51 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"1bc82c92-be29-442a-8294-70b224b353eb"}
+19:52:56 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"6a4d04f6-b633-4d7e-8ebc-6e325bd4e85c"}
+19:52:57 info request {"method":"GET","path":"/api/v1/settings/model-providers","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"0ca1cad3-58cf-4c96-8507-26d4f356d827"}
+19:53:01 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"a8008762-6547-4217-b119-e9b427bee244"}
+19:53:06 info request {"method":"POST","path":"/api/v1/agents","status":201,"duration_ms":5,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"b5a03670-1d3f-437a-bc11-f5ee1435fafe"}
+19:53:06 info request {"method":"GET","path":"/api/v1/agents/","status":404,"duration_ms":0,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"6282b132-afff-458a-a5c0-1a605c7549f8"}
+19:53:06 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":0,"request_id":"9e9bc1e3-7e0f-42af-abb7-6cc101f09593"}
+19:53:11 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"4461b4d5-15da-4c9b-82b6-9f08351dbbb2"}
+19:53:13 info request {"method":"GET","path":"/api/v1/agents/01m838jepvq9qp4tt4sqgv98yq","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"5e57a0e1-3b4e-417b-a340-a3df26c2c96b"}
+19:53:16 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"7b02b4d8-87b2-4db6-80c5-5b348c8bfbf0"}
+19:53:21 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"30134262-adde-47c3-8cba-69c6b154a81e"}
+19:53:23 info request {"method":"POST","path":"/api/v1/sessions","status":201,"duration_ms":4,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"7fc63774-0581-4d7c-9c71-3bde04a74174","session_id":"01m838jzjye0wt070w7zxq8b6a"}
+19:53:23 info request {"method":"POST","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns","status":200,"duration_ms":13,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"0588dd42-f615-4472-86d5-beb4bfd0b8a0","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838jzm0rd67c0wnrqef76kc"}
+19:53:23 info request {"method":"GET","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns/01m838jzm0rd67c0wnrqef76kc","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"fc5a5ead-b84d-476c-b708-fcb5ff3493e9","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838jzm0rd67c0wnrqef76kc"}
+19:53:24 info request {"method":"GET","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns/01m838jzm0rd67c0wnrqef76kc","status":200,"duration_ms":3,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"ee827090-7535-422c-b40e-41df08264637","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838jzm0rd67c0wnrqef76kc"}
+19:53:25 info request {"method":"GET","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns/01m838jzm0rd67c0wnrqef76kc","status":200,"duration_ms":3,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"0852e93e-9398-41ca-804f-31b38cd3f53d","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838jzm0rd67c0wnrqef76kc"}
+19:53:26 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":0,"request_id":"98774c7c-740c-42fa-99b6-f98f451db6c1"}
+19:53:26 info request {"method":"GET","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns/01m838jzm0rd67c0wnrqef76kc","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"67ae3a69-6855-4916-8775-d3066c217857","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838jzm0rd67c0wnrqef76kc"}
+19:53:28 info request {"method":"GET","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns/01m838jzm0rd67c0wnrqef76kc","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"70b6e10a-85dd-4d26-ac24-abff2a7f7231","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838jzm0rd67c0wnrqef76kc"}
+19:53:31 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":3,"request_id":"1c21c105-1e7d-4481-8913-4ed378e43372"}
+19:53:36 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":2,"request_id":"91cdd16c-3468-4139-bfb5-a34684172334"}
+19:53:40 info request {"method":"POST","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns","status":200,"duration_ms":9,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"ebb34a3f-d9fb-4c58-92a7-e200189bc6ea","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838kg60sas8chq5n8q6pjt9"}
+19:53:40 info request {"method":"GET","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns/01m838kg60sas8chq5n8q6pjt9","status":200,"duration_ms":1,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"0dcff6d3-d5b3-4393-b3ac-bb9d22329944","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838kg60sas8chq5n8q6pjt9"}
+19:53:41 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":1,"request_id":"28d7727e-57a7-46ff-b37a-31fea5cb1043"}
+19:53:41 info request {"method":"GET","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns/01m838kg60sas8chq5n8q6pjt9","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"3b5135ce-1428-45a0-a9f4-ba47784ec9a0","session_id":"01m838jzjye0wt070w7zxq8b6a","turn_id":"01m838kg60sas8chq5n8q6pjt9"}
+19:53:41 info request {"method":"GET","path":"/api/v1/sessions/01m838jzjye0wt070w7zxq8b6a/turns","status":200,"duration_ms":2,"subject_type":"user","subject_id":"trueforge-default","tenant_id":"default","request_id":"ddf5f67e-0be7-4bcd-bdc7-473d525cbc99","session_id":"01m838jzjye0wt070w7zxq8b6a"}
+19:53:46 info request {"method":"GET","path":"/api/internal/sandbox-environments/pending","status":200,"duration_ms":0,"request_id":"6ae28291-148b-46be-99ce-183341347a61"}
+19:53:48 info Received SIGTERM, draining connections before shutdown
+19:53:48 info Controller stopped

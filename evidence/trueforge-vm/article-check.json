@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-22",
+  "article": "getting-started-with-trueforge-in-10-minutes.html",
+  "source_sha256": "33ab82e14666d632c33e0e7faac332b73cffc465d92425f566b2e91bf56d44ce",
+  "html_sha256": "5ba99264f886b3e86b0713ce2808b85e2ca3280cd48331f2b1204719a426598b",
+  "verification_scope": "v6: full walkthrough re-run on the author's MacBook (macOS 27.2.1 arm64, Node 26.13.0, TrueForge 0.185.1, openai/gpt-5-4-mini), including a server restart. Article bash blocks 2-11 and 13 executed verbatim in zsh -f (log: evidence/macbook-run/article-commands-zsh.log). Simple-language rewrite. See evidence/macbook-run/README.md.",
+  "checks": {
+    "bash_snippet_syntax": "passed: bash -n on each bash block",
+    "html_javascript_syntax": "passed: node --check",
+    "local_document_links_and_images": "passed: all evidence/ and examples/ paths exist",
+    "html_anchors_and_unique_ids": "passed",
+    "all_five_article_images_loaded": true,
+    "credential_pattern_scan": "passed",
+    "document_width_at_375_768_1280": "passed: no horizontal overflow",
+    "article_console_errors": [],
+    "token_figures_match_completed_turns_json": "289/288 and 593/28; breakdown 213/55/21 and 213/55/325",
+    "readback_defaults_match_saved_agent_json": "sandbox.file_downloads, context_management.compaction, context_management.large_tool_response",
+    "first_person_voice_removed": true
+  },
+  "previous_revision": {
+    "date": "2026-11-19",
+    "source_sha256": "2c248ddbd12ce0676b92252cb5229c7eba19694ae252a105abae6aff68f2c020",
+    "html_sha256": "1fdf1a79e496bca52f97e5396d7248775e6d6fe8546c2f90bb2683d76499c838",
+    "verification_scope": "Editorial revision; reused the recorded fresh-VM run. No new model calls or deployment tests."
+  }
+}

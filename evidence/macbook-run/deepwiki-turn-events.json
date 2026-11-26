@@ -1,0 +1,46 @@
+[
+  {
+    "at": "2026-11-23T13:33:49.026Z",
+    "tool_call": "list_tools",
+    "arguments": {
+      "mcp_server": "deepwiki"
+    }
+  },
+  {
+    "at": "2026-11-23T13:33:49.677Z",
+    "tool_response": "deepwiki:\n  ask_wiki_question, read_wiki_contents, read_wiki_structure"
+  },
+  {
+    "at": "2026-11-23T13:33:52.977Z",
+    "tool_call": "get_tool_info",
+    "arguments": {
+      "mcp_server": "deepwiki",
+      "tool_name": "ask_wiki_question"
+    }
+  },
+  {
+    "at": "2026-11-23T13:33:52.979Z",
+    "tool_response": "{\"description\":\"Ask any question about a GitHub repository's codebase and get an AI-powered answer\\ngrounded in its DeepWiki.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"repoName\":{\"anyOf\":[{\"type\":\"string\"},{\"items\":{\"type\":\"string\"},\"type\":\"array\"}],\"description\":\"GitHub repository or list of repositories (max 10) in owner/repo format.\"},\"question\":{\"description\":\"The question to ask about th"
+  },
+  {
+    "at": "2026-11-23T13:33:54.830Z",
+    "tool_call": "call_tool",
+    "arguments": {
+      "mcp_server": "deepwiki",
+      "tool_name": "ask_wiki_question",
+      "input": {
+        "repoName": "expressjs/express",
+        "question": "What is the minimum supported Node.js version in this repository, and which file states it?"
+      }
+    }
+  },
+  {
+    "at": "2026-11-23T13:34:03.582Z",
+    "tool_response": "{\"result\":\"The minimum supported Node.js version is **18**; `Readme.md` states “Node.js 18 or higher,” and `package.json` declares the engine requirement as `>= 18`. \\n\\n## Notes\\n\\nThe `package.json` engine field is the formal version constraint. \\n\\nWiki pages you might want to explore:\\n- [Project Development and Governance (expressjs/express)](/wiki/expressjs/express#8)\\n- [Project Governance "
+  },
+  {
+    "at": "2026-11-23T13:34:06.298Z",
+    "reply": "Express supports Node.js **18** minimum, as stated in `package.json` (engine `>= 18`).",
+    "model": "openai/gpt-5-4-mini"
+  }
+]

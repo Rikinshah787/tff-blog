@@ -1,0 +1,9 @@
+{
+  "input": [
+    {
+      "type": "user.message",
+      "content": "Which line tells you whether Redis is being used?"
+    }
+  ],
+  "stream": false
+}

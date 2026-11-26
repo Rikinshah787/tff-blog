@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01m7v04waybdeg099t1cahyh43",
+    "session_id": "01m7v04w8nktr9jvg8123sn1hc",
+    "previous_turn_id": null,
+    "input": [
+      {
+        "type": "user.message",
+        "content": "What does this startup output establish, and what remains unverified?\n\nStandalone mode: executor peering disabled and Redis unused\nAuth is disabled; browser login is off\nAgent server listening on http://127.0.0.1:8790 (docs at /api/v1/docs)"
+      }
+    ],
+    "state": {
+      "status": "done",
+      "output": {
+        "content": "**Observations**\n- **Standalone mode is active; peer coordination and Redis are not being used.**  \n  > “Standalone mode: executor peering disabled and Redis unused”\n- **Authentication is disabled, and browser-based login is turned off.**  \n  > “Auth is disabled; browser login is off”\n- **An HTTP server is listening locally on port 8790, and API docs are exposed.**  \n  > “Agent server listening on http://127.0.0.1:8790 (docs at /api/v1/docs)”\n\n**What remains unverified**\n- **Whether the service is actually healthy beyond binding the port.**  \n  The listener line confirms a socket is open, but not that the application is fully initialized or responding correctly.\n- **Whether any model requests are succeeding.**  \n  No log line shows a completed request, inference result, or upstream/model connectivity.\n- **Whether code paths that depend on Redis or peering are exercised successfully.**  \n  The logs only say those features are disabled; they do not verify alternative runtime behavior.\n\n**Three next checks**\n1. Call a health endpoint or open `/api/v1/docs` to verify the API responds, not just the listener.\n2. Send a minimal test request and confirm a real response is returned.\n3. Inspect logs for startup completion, errors, or any model/provider initialization messages.",
+        "type": "model.message",
+        "id": "01m7v04wdjs56tey6caw3384q2",
+        "created_at": "2026-11-19T22:52:00.705Z",
+        "thread_id": "main",
+        "finish_reason": "stop",
+        "usage": {
+          "input_tokens": 289,
+          "output_tokens": 288,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "input_tokens_breakdown": {
+            "harness": 213,
+            "skills": 0,
+            "instructions": 55,
+            "tool_definitions": 0,
+            "messages": 21
+          }
+        },
+        "model": {
+          "name": "openai/gpt-5-4-mini",
+          "params": {
+            "max_tokens": 128000
+          }
+        }
+      },
+      "required_actions": [],
+      "completed_at": "2026-11-19T22:52:00.708Z",
+      "metrics": {
+        "total_input_tokens": 289,
+        "total_output_tokens": 288,
+        "total_tokens": 577,
+        "total_cache_read_tokens": 0,
+        "total_cache_write_tokens": 0,
+        "total_reasoning_tokens": 0
+      }
+    },
+    "created_at": "2026-11-19T22:51:57.699Z"
+  },
+  {
+    "id": "01m7v06nwkbgwj4zhbjzezdyf0",
+    "session_id": "01m7v04w8nktr9jvg8123sn1hc",
+    "previous_turn_id": "01m7v04waybdeg099t1cahyh43",
+    "input": [
+      {
+        "type": "user.message",
+        "content": "Which line tells you whether Redis is being used?"
+      }
+    ],
+    "state": {
+      "status": "done",
+      "output": {
+        "content": "The line is:\n\n> “Standalone mode: executor peering disabled and Redis unused”\n\nThat explicitly says Redis is unused.",
+        "type": "model.message",
+        "id": "01m7v06nxyecz3587rh2w26enz",
+        "created_at": "2026-11-19T22:52:57.683Z",
+        "thread_id": "main",
+        "finish_reason": "stop",
+        "usage": {
+          "input_tokens": 593,
+          "output_tokens": 28,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "input_tokens_breakdown": {
+            "harness": 213,
+            "skills": 0,
+            "instructions": 55,
+            "tool_definitions": 0,
+            "messages": 325
+          }
+        },
+        "model": {
+          "name": "openai/gpt-5-4-mini",
+          "params": {
+            "max_tokens": 128000
+          }
+        }
+      },
+      "required_actions": [],
+      "completed_at": "2026-11-19T22:52:57.685Z",
+      "metrics": {
+        "total_input_tokens": 593,
+        "total_output_tokens": 28,
+        "total_tokens": 621,
+        "total_cache_read_tokens": 0,
+        "total_cache_write_tokens": 0,
+        "total_reasoning_tokens": 0
+      }
+    },
+    "created_at": "2026-11-19T22:52:56.627Z"
+  }
+]

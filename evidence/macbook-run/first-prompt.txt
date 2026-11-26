@@ -1,0 +1,5 @@
+What does this startup output establish, and what remains unverified?
+
+Standalone mode: executor peering disabled and Redis unused
+Auth is disabled; browser login is off
+Agent server listening on http://127.0.0.1:8790 (docs at /api/v1/docs)

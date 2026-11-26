@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started with TrueForge in 10 minutes</title>
+<meta name="description" content="Run an open-source agent with one command, watch it choose its own tools, and see exactly what each answer costs.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --page: #FAFCFF; --ink: #334155; --ink-strong: #1C2A42; --muted: #3E5680;
+  --link: #2563EB; --line: #E0ECFD; --line-soft: #E5E7EB; --head-bg: #F3F4F6;
+  --toc-active: #E3ECFE; --hero-from: #000000; --hero-to: #2800C5;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --ui: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--page); color: var(--muted); font-family: var(--ui); font-size: 16px; -webkit-font-smoothing: antialiased; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
+
+/* Hero */
+.hero { background: linear-gradient(var(--hero-from) 44%, var(--hero-to)); color: #fff; padding: 56px 0 76px; }
+.container { max-width: 1440px; margin: 0 auto; padding: 0 max(16px, 80px); }
+.hero .container { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; padding-left: max(16px, 90px); }
+.hero h1 { font-family: var(--display); font-weight: 600; font-size: 42px; line-height: 1.2; margin: 0 0 48px; max-width: 600px; text-wrap: balance; }
+.byline { display: flex; gap: 12px; align-items: center; font-family: var(--display); font-size: 15px; line-height: 21px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #6D5BFF, #2800C5); display: grid; place-items: center; font-weight: 600; font-size: 15px; flex: none; border: 1px solid rgba(255,255,255,.35); }
+.byline-author { display: block; font-weight: 600; }
+.byline-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; margin: 4px 0; }
+.reading-time { white-space: nowrap; }
+.reading-time::before { content: "·"; margin-right: 10px; }
+.byline-extra { display: block; font-size: 13px; opacity: .8; }
+.cover { aspect-ratio: 588 / 300; border-radius: 18px; background: radial-gradient(120% 90% at 85% 10%, #1E2A6B 0%, rgba(30,42,107,0) 55%), radial-gradient(80% 70% at 10% 95%, #1B1F55 0%, rgba(27,31,85,0) 60%), #0B0F2E; border: 1px solid rgba(255,255,255,.06); display: grid; place-items: center; padding: 24px; }
+.cover-inner { text-align: center; }
+.cover-mark { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 3.4vw, 46px); letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 14px; }
+.cover-mark i { width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg, #7C6CFF, #3B1BFF); display: inline-block; transform: rotate(45deg) scale(.8); }
+.cover-cmd { margin-top: 18px; font-family: var(--mono); font-size: 15px; color: #B9C3FF; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); padding: 8px 14px; border-radius: 8px; display: inline-block; }
+
+/* Layout */
+.layout { display: grid; grid-template-columns: minmax(0, 896px) 300px; justify-content: space-between; gap: 64px; padding-top: 32px; padding-bottom: 96px; }
+article { min-width: 0; font-family: var(--display); color: var(--ink); }
+article h1.content-title { font-weight: 700; font-size: 50px; line-height: 1.3; margin: 0 0 8px; color: var(--ink); text-wrap: balance; }
+article h2 { font-weight: 700; font-size: 36px; line-height: 1.3; margin: 32px 0 16px; color: var(--ink); scroll-margin-top: 24px; }
+article h3 { font-weight: 600; font-size: 24px; line-height: 1.3; letter-spacing: .3px; margin: 16px 0 16px; color: var(--ink); scroll-margin-top: 24px; }
+article p, article li { font-size: 18px; font-weight: 300; line-height: 27px; letter-spacing: .63px; color: var(--ink); }
+article p { margin: 0 0 16px; }
+article ul, article ol { padding-left: 1.3em; margin: 0 0 16px; }
+article li { margin-bottom: 6px; }
+article strong { font-weight: 700; }
+article em { font-style: italic; }
+article code { font-family: var(--mono); font-size: .9em; letter-spacing: 0; color: var(--ink); overflow-wrap: anywhere; }
+section + section { margin-top: 8px; }
+
+/* Code blocks */
+.code { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 1px 3px rgba(15, 23, 42, .06); margin: 0 0 20px; }
+.code pre { margin: 0; padding: 28px 16px 14px; overflow-x: auto; font-family: var(--mono); font-size: 15px; line-height: 21px; color: var(--ink-strong); }
+.code pre code { font-size: inherit; color: inherit; overflow-wrap: normal; }
+.code.lang-text pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.copy { position: absolute; top: 6px; right: 8px; font-family: var(--ui); font-size: 12px; color: #64748B; background: #fff; border: 1px solid var(--line-soft); border-radius: 6px; padding: 2px 8px; cursor: pointer; }
+.copy:hover { color: var(--ink-strong); border-color: #CBD5E1; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; margin: 0 0 20px; border: 1px solid var(--line); box-shadow: 0 2px 6px rgba(15, 23, 42, .06); background: #fff; }
+table { border-collapse: collapse; width: 100%; min-width: 420px; font-family: var(--display); }
+th, td { padding: 16px 24px 16px 12px; border: 1px solid var(--line); font-size: 16px; line-height: 1.6; color: var(--ink-strong); text-align: left; vertical-align: middle; }
+th { background: var(--head-bg); font-weight: 600; }
+td { font-weight: 400; }
+td:first-child { font-weight: 600; }
+td code, th code { white-space: nowrap; }
+
+/* Figures */
+figure { margin: 8px 0 24px; }
+figure a { display: block; background: #fff; border: 1px solid var(--line-soft); padding: 16px; }
+figure img { display: block; width: 100%; height: auto; }
+figcaption { font-family: var(--display); font-style: italic; font-size: 15px; line-height: 21px; color: var(--ink); text-align: center; margin-top: 10px; }
+
+/* TOC */
+.toc { position: sticky; top: 24px; align-self: start; font-family: var(--ui); }
+.toc-card { background: #fff; border: 1px solid var(--line-soft); border-radius: 6px; overflow: hidden; }
+.toc-head { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; font: 400 16px/24px var(--ui); color: #111827; background: #fff; border: 0; border-bottom: 1px solid var(--line-soft); cursor: pointer; }
+.toc-head svg { transition: transform .2s; }
+.toc.collapsed .toc-head svg { transform: rotate(180deg); }
+.toc.collapsed ol { display: none; }
+.toc ol { list-style: none; margin: 0; padding: 10px; max-height: calc(100vh - 120px); overflow-y: auto; }
+.toc a { display: block; padding: 10.4px 20px; font-size: 14px; line-height: 21px; color: #4D4D4D; border-radius: 6px; }
+.toc a:hover { text-decoration: none; background: #F1F5FD; }
+.toc a.active { background: var(--toc-active); color: #111827; }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .toc { position: static; order: -1; }
+  .toc ol { max-height: none; }
+}
+@media (max-width: 860px) {
+  .container, .hero .container { padding-left: 16px; padding-right: 16px; }
+  .hero { padding: 40px 0 48px; }
+  .hero .container { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .hero h1 { font-size: 32px; margin-bottom: 28px; }
+  article h1.content-title { font-size: 34px; }
+  article h2 { font-size: 28px; }
+  article h3 { font-size: 21px; }
+  article p, article li { font-size: 17px; letter-spacing: .3px; }
+}
+
+:root {
+  --page: #f9f9f9; --ink: #334155; --ink-strong: #19243a;
+  --link: #4b24cf; --line: #dbe8fc; --line-soft: #e1e2e6;
+  --toc-active: #dfeafb; --hero-to: #2800c5;
+}
+.hero { background: linear-gradient(180deg, #000 43%, var(--hero-to) 100%); }
+.hero .container { padding-inline: 90px; gap: 84px; }
+.hero h1 { text-wrap: initial; margin-bottom: 42px; }
+.hero .byline { color: #fff; gap: 8px; }
+.hero .byline-meta { margin: 0; font-size: 14px; }
+.hero .reading-time::before { content: none; }
+.hero .byline-extra { opacity: 1; color: #fff; font-size: 14px; }
+.trueforge-cover {
+  min-width: 0; aspect-ratio: 588 / 300; border-radius: 20px; position: relative;
+  display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); align-items: center;
+  gap: 24px; padding: clamp(20px, 3.1vw, 44px); border: 1px solid #191733;
+  background: radial-gradient(ellipse at 25% 15%, #191834 0%, transparent 80%), linear-gradient(145deg, #101029, #080814 85%);
+  container-type: inline-size;
+}
+.cover-kicker { display: block; margin-bottom: 24px; color: #a9a1f0; font: 700 10px/1.4 var(--ui); letter-spacing: .15em; text-transform: uppercase; }
+.cover-title { font: 700 clamp(23px, 8cqw, 39px)/1.08 var(--display); letter-spacing: -.035em; }
+.cover-title::after { content: ""; display: block; margin: 18px 0 9px; width: 42px; height: 2px; background: #7865f4; }
+.cover-address { color: #aaa7be; font: 400 clamp(9px, 2.5cqw, 12px)/1.4 var(--mono); overflow-wrap: anywhere; }
+.cover-path { display: grid; gap: 9px; font: 500 clamp(8px, 2.2cqw, 11px)/1.4 var(--ui); color: #c1badc; }
+.cover-path span { border-radius: 6px; border: 1px solid #292644; background: #1a1833; padding: 6px 9px; }
+.layout { column-gap: 64px; }
+article p, article li { line-height: 1.5; }
+article a { text-decoration: underline; text-underline-offset: .15em; }
+article section[id] { scroll-margin-top: 24px; }
+article section:first-child { margin-bottom: 12px; }
+article section:first-child .quick-summary { margin: 28px 0 32px; }
+.quick-summary { padding: 23px 26px 13px; background: linear-gradient(120deg, #f4f4fe, #f0f1fc); border: 1px solid #e2e3f1; border-left: 5px solid #6549f5; border-radius: 14px; box-shadow: 0 6px 24px #2415400b; }
+article .quick-summary h2 { display: inline-block; margin: 0 0 16px; padding: 6px 14px; border-radius: 18px; background: linear-gradient(110deg, #5642e9, #7858fc); color: #fff; font: 700 13px/1.5 var(--ui); letter-spacing: .04em; }
+article .quick-summary ul { list-style: none; padding: 0; margin: 0; }
+article .quick-summary li { color: #252941; position: relative; padding: 10px 0 10px 27px; margin: 0; font: 400 15px/1.6 var(--ui); letter-spacing: -.015em; }
+.quick-summary li + li { border-top: 1px solid #deddf5; }
+.quick-summary li::before { content: ""; position: absolute; left: 5px; top: 18px; width: 8px; height: 8px; border-radius: 50%; background: #684bf3; }
+.code { border-radius: 4px; }
+.toc-card { background: transparent; border-color: #d5d5d5; border-radius: 8px; }
+.toc-head { height: 44px; border: 1px solid #dedede; border-radius: 8px; margin: -1px; width: calc(100% + 2px); background: #fff; color: #171717; }
+.toc ol { padding: 14px 10px 17px; }
+.toc li + li { margin-top: 4px; }
+.toc a { border-radius: 10px; }
+.toc a.active { color: #121826; }
+@media (max-width: 1230px) {
+  .hero .container, .layout { padding-inline: 32px; }
+  .hero .container { gap: 48px; }
+}
+@media (max-width: 860px) {
+  .hero .container, .layout { padding-inline: 24px; }
+  .hero .container { gap: 32px; }
+  .hero h1 { font-size: clamp(24px, 4vw, 36px); margin-bottom: 30px; }
+  .hero { padding: 72px 0 34px; }
+  .trueforge-cover { grid-row: 1; border-radius: 12px; gap: 14px; }
+  .cover-kicker { margin-bottom: 12px; font-size: clamp(6px, 1.6cqw, 10px); }
+  .cover-title::after { margin: 10px 0 7px; width: 26px; }
+  .cover-path span { padding: 4px 6px; }
+  .layout { padding-top: 32px; }
+  article section:first-child .quick-summary { margin-top: 0; }
+  .quick-summary { padding: 16px 16px 8px; }
+}
+</style></head><body>
+<header class="hero"><div class="container">
+<div><h1>Getting started with TrueForge in 10 minutes</h1>
+<div class="byline"><span class="avatar" aria-hidden="true">RS</span><div><span class="byline-author">By Rikin Shah</span><div class="byline-meta"><span class="reading-time" aria-label="Estimated reading time: 10 minutes">10 min read</span></div><span class="byline-extra">Tested November 23, 2026 with TrueForge 0.185.1</span></div></div></div>
+<div class="trueforge-cover" aria-hidden="true">
+<div><span class="cover-kicker">TrueFoundry · Quickstart</span>
+<div class="cover-title">Run TrueForge locally</div>
+<code class="cover-address">http://localhost:8790</code></div>
+<div class="cover-path"><span>Install TrueForge</span><span>Connect a model</span><span>Call a tool</span><span>Reopen your chat</span></div>
+</div>
+</div></header>
+<div class="container layout">
+<article>
+<section id="intro"><p>Most agent demos stop at a chatbot. You type, it answers, and you could have done the same thing in ChatGPT. The part worth your time is when the agent decides on its own to go and fetch something, and you can see every step it took and what it cost.</p>
+<p>That's where this guide gets you. TrueForge is TrueFoundry's open-source agent harness: the layer between your chat window and the model that keeps the conversation, runs the tools, and saves everything to disk. It runs anywhere Node.js does, on macOS, Linux or Windows, with your own model key. Ten minutes from now you'll have watched it answer a question about a GitHub repo by calling three tools it picked itself, for about a third of a cent.</p>
+<p>I ran every step on my MacBook. The commands, outputs, timings and costs below come from that run, not from the docs.</p><div class="quick-summary"><h2>TL;DR</h2><ul><li><strong>One command</strong> starts TrueForge at <code>localhost:8790</code>. No project setup.</li><li><strong>One click</strong> connects DeepWiki, a tool that reads public GitHub repos. No account needed.</li><li><strong>One question</strong> made the agent call 3 tools on its own. I checked its answer and it was right.</li><li><strong>It's cheap, but tools aren't free.</strong> The tool answer cost $0.0033 and took 21 seconds. A plain answer cost $0.0005 to $0.0012 and took about 2 seconds.</li></ul></div></section>
+<section id="is-this-for-you"><h2>Is this for you?</h2>
+<p><strong>Good fit:</strong> developers who want to try agents and MCP tools on their own machine before building anything. Also anyone who wants one chat window that works with OpenAI, Anthropic, Gemini or any OpenAI-compatible endpoint, with the history kept in a file they own.</p>
+<p><strong>Not a good fit:</strong> if you just want to talk to an AI, ChatGPT or Claude.ai is less work. No terminal, no API key, no per-token bill. And local mode is for one person. It has no login, and TrueForge prints a warning at startup that it isn't hardened for shared or internet access.</p>
+</section>
+<section id="before-you-start"><h2>Before you start</h2>
+<ul><li><strong>Node.js 22.14 or newer</strong> on any computer. Run <code>node --version</code> to check. If it's missing, get the installer from nodejs.org. It comes with npm and <code>npx</code>.</li><li><strong>An API key</strong> from any model provider. I used OpenAI.</li><li><strong>Ten minutes.</strong></li></ul>
+</section>
+<section id="1-start-trueforge"><h2>1. Start TrueForge</h2>
+<p>Open a terminal and run one command.</p>
+<div class="code lang-bash"><button class="copy" type="button">Copy</button><pre><code>npx @truefoundry/trueforge@0.185.1</code></pre></div>
+<p>In plain terms:</p>
+<ul><li><code>npx</code> downloads a tool and runs it straight away. Nothing gets installed for the whole computer, and there's no project folder to set up.</li><li><code>@truefoundry/trueforge</code> is TrueForge's package name.</li><li><code>@0.185.1</code> pins the exact version I tested. Leave it off to get the latest release.</li></ul>
+<p>When you see this line, it's ready.</p>
+<div class="code lang-text"><button class="copy" type="button">Copy</button><pre><code>Agent server listening on http://localhost:8790 (docs at /api/v1/docs)</code></pre></div>
+<figure><a href="evidence/macbook-run/10-server-started-mac.png" target="_blank" rel="noopener"><img src="evidence/macbook-run/10-server-started-mac.png" alt="My terminal after startup, with the &quot;Agent server listening&quot; line highlighted" loading="lazy"></a><figcaption>My terminal after startup, with the &quot;Agent server listening&quot; line highlighted</figcaption></figure>
+<p>Leave the terminal open and go to <a href="http://localhost:8790">localhost:8790</a>. Two things the defaults handle for you:</p>
+<ul><li><strong>It only listens on your own computer.</strong> <code>localhost</code> means other devices on your Wi-Fi can't reach it. That matters, because local mode has no login.</li><li><strong>Your chats go in one database file</strong> in your user's app-data folder. On my Mac that was <code>~/Library/Application Support/trueforge/db/db.sqlite</code>. The startup line beginning <code>Standalone mode: sqlite at</code> shows the exact path on your machine.</li></ul>
+<p>You'll also see a yellow warning box about local use, and possibly a long line starting <code>Local sandbox fallback is unavailable</code>. Both are expected. I come back to the second one under "What I'd watch out for".</p>
+</section>
+<section id="2-connect-a-model"><h2>2. Connect a model</h2>
+<p>A fresh install opens on <strong>Settings → Models</strong>. Find your provider's row, click <strong>Configure</strong>, paste your key, and click <strong>Create</strong>. When it says <strong>Connected</strong>, you're done.</p>
+<figure><a href="evidence/macbook-run/01-models-mac.png" target="_blank" rel="noopener"><img src="evidence/macbook-run/01-models-mac.png" alt="OpenAI marked Connected in Settings → Models" loading="lazy"></a><figcaption>OpenAI marked Connected in Settings → Models</figcaption></figure>
+</section>
+<section id="3-give-the-agent-a-tool"><h2>3. Give the agent a tool</h2>
+<p>This is the step that makes TrueForge more than a chat window.</p>
+<p>Go to <strong>Settings → Connectors</strong>. There are 18 ready-made connectors, including GitHub, Linear, Notion and Sentry. Most need a login. <strong>DeepWiki</strong> doesn't, and it answers questions about any public GitHub repo, so it's the quickest one to try. Click <strong>Connect</strong>.</p>
+<figure><a href="evidence/macbook-run/07-deepwiki-connected.png" target="_blank" rel="noopener"><img src="evidence/macbook-run/07-deepwiki-connected.png" alt="DeepWiki under Configured in Settings → Connectors, marked Connected" loading="lazy"></a><figcaption>DeepWiki under Configured in Settings → Connectors, marked Connected</figcaption></figure>
+<p>Now click <strong>New Chat</strong>. Under the message box, open <strong>Tools</strong>, go to the <strong>Connectors</strong> tab, and tick <strong>deepwiki</strong>. Pick your model (I used <strong>gpt-5-4-mini</strong>, which is how TrueForge lists OpenAI's gpt-5.4-mini) and ask something you'd normally dig through a repo to find out.</p>
+<div class="code lang-text"><button class="copy" type="button">Copy</button><pre><code>Use DeepWiki to check the expressjs/express repository. What is the minimum Node.js version it supports? Answer in one line and name the file that says so.</code></pre></div>
+<p>21 seconds later:</p>
+<div class="code lang-text"><button class="copy" type="button">Copy</button><pre><code>Express supports Node.js 18 minimum, as stated in package.json (engine &gt;= 18).</code></pre></div>
+<p>Click <strong>Agent steps</strong> above the reply. That panel is the reason to use a harness.</p>
+<figure><a href="evidence/macbook-run/08-deepwiki-chat.png" target="_blank" rel="noopener"><img src="evidence/macbook-run/08-deepwiki-chat.png" alt="Agent steps expanded: listing DeepWiki tools, get_tool_info, and call_tool for ask_wiki_question, followed by the answer" loading="lazy"></a><figcaption>Agent steps expanded: listing DeepWiki tools, get_tool_info, and call_tool for ask_wiki_question, followed by the answer</figcaption></figure>
+<p>The model never touched DeepWiki itself. It asked TrueForge what tools were available, then asked for the details of one called <code>ask_wiki_question</code>, then asked TrueForge to call it on <code>expressjs/express</code>. TrueForge ran each request and handed back the result. Three tool calls, and the model chose every one.</p>
+<p>Notice that TrueForge didn't give the model DeepWiki's full tool manual up front. The model had to ask for the list, and then for one tool's details. With one connector that hardly matters. With ten, it keeps the model from paying to read descriptions of tools it will never use.</p>
+<p>I didn't take the answer on trust. <code>npm view express engines</code> printed <code>{ node: '&gt;= 18' }</code>, so it was right. The <a href="evidence/macbook-run/deepwiki-turn-events.json">tool-call log</a> shows every request and response.</p>
+</section>
+<section id="4-check-what-it-remembers"><h2>4. Check what it remembers</h2>
+<p>Start a new chat, without DeepWiki this time, and send this.</p>
+<div class="code lang-text"><button class="copy" type="button">Copy</button><pre><code>Use this sample CSV as a test fixture. Which SKU has zero stock? Reply with just the SKU.
+
+sku,stock
+PENCIL-4,0
+PENCIL-9,3</code></pre></div>
+<p>It replied <code>PENCIL-4</code>. Then send a follow-up that only makes sense if it remembers the rows.</p>
+<div class="code lang-text"><button class="copy" type="button">Copy</button><pre><code>Add two units to the other SKU. Return just its updated CSV row.</code></pre></div>
+<p>It replied <code>PENCIL-9,5</code>. The follow-up never names the SKU or its starting stock, so the model must have received the first message again. TrueForge sends the whole conversation every time. The <a href="evidence/macbook-run/new-chat-turns.json">turn records</a> show each turn pointing back at the one before.</p>
+<p>Then I asked "where is the csv stored?" The model said it "isn't stored anywhere persistent". That's wrong. The rows are sitting in TrueForge's SQLite file on my disk. The model only knows what's in the conversation. Remembering is TrueForge's job, and the model can't see that it happened.</p>
+</section>
+<section id="5-restart-and-get-it-all-back"><h2>5. Restart and get it all back</h2>
+<p>Press <strong>Ctrl+C</strong> in the terminal, then run the same command again.</p>
+<div class="code lang-bash"><button class="copy" type="button">Copy</button><pre><code>npx @truefoundry/trueforge@0.185.1</code></pre></div>
+<p>Reload <a href="http://localhost:8790">localhost:8790</a>, open the chat that starts <strong>Use this sample CSV</strong> under <strong>Chat History</strong>, and everything is still there.</p>
+<figure><a href="evidence/macbook-run/new-chat-after-restart.png" target="_blank" rel="noopener"><img src="evidence/macbook-run/new-chat-after-restart.png" alt="The reopened conversation shows both original CSV rows, the follow-up, and the reply PENCIL-9,5." loading="lazy"></a><figcaption>The reopened conversation shows both original CSV rows, the follow-up, and the reply PENCIL-9,5.</figcaption></figure>
+<p>If the restart fails with <code>Failed to start server: listen EADDRINUSE: address already in use</code>, an older TrueForge is still running, probably in another terminal tab. That happened to me.</p>
+<figure><a href="evidence/macbook-run/09-eaddrinuse-mac.png" target="_blank" rel="noopener"><img src="evidence/macbook-run/09-eaddrinuse-mac.png" alt="My second start failed with EADDRINUSE because an older TrueForge was still holding port 8790." loading="lazy"></a><figcaption>My second start failed with EADDRINUSE because an older TrueForge was still holding port 8790.</figcaption></figure>
+<p>Think of port 8790 as a parking spot that only one program can use at a time. The old TrueForge is still parked there, so the new one has nowhere to go. On macOS or Linux, these two lines find the old one and stop it:</p>
+<div class="code lang-bash"><button class="copy" type="button">Copy</button><pre><code>lsof -nP -iTCP:8790 -sTCP:LISTEN
+kill -INT $(lsof -t -iTCP:8790 -sTCP:LISTEN)</code></pre></div>
+<ul><li><strong>The first line asks your computer which program is using port 8790.</strong> If the COMMAND column says <code>node</code>, that's TrueForge. The PID column is the ID number your computer gave it.</li><li><strong>The second line looks up that same ID and tells the program to stop.</strong> <code>-INT</code> sends the same signal as Ctrl+C. Your chats are already saved, so nothing is lost.</li></ul>
+<p>Then start it again. If <strong>Chat History</strong> comes back empty, compare the <code>Standalone mode: sqlite at</code> line from both starts. They should print the same path.</p>
+</section>
+<section id="what-it-costs-and-how-fast-it-is"><h2>What it costs, and how fast it is</h2>
+<p>Here are the three answers from this guide, priced at OpenAI's published rates for gpt-5.4-mini: $0.75 per million input tokens, $0.075 per million cached input tokens, and $4.50 per million output tokens. Each one ran once, so read them as ballpark figures, not a benchmark.</p>
+<div class="table-wrap"><table><thead><tr><th></th><th>CSV question</th><th>CSV follow-up</th><th>DeepWiki question</th></tr></thead><tbody><tr><td>Time</td><td>2.4 seconds</td><td>2.3 seconds</td><td>21 seconds</td></tr><tr><td>Model calls</td><td>1</td><td>1</td><td>4</td></tr><tr><td>Input tokens</td><td>1,516</td><td>1,545 (1,408 cached)</td><td>7,042 (4,608 cached)</td></tr><tr><td>Output tokens</td><td>19</td><td>57</td><td>260</td></tr><tr><td>Cost</td><td>$0.0012</td><td>$0.0005</td><td>$0.0033</td></tr></tbody></table></div>
+<p>Three things stand out.</p>
+<p><strong>The tool answer cost more and took longer.</strong> It was a different question, so this isn't a clean comparison, but the reason is easy to see. Every tool call is another round trip. The model sends its request, TrueForge runs the tool, and the result goes back to the model with the conversation so far. That's where the extra 18 seconds and 5,500 tokens came from. Even so, a thousand DeepWiki questions like this one would cost about $3.34 on this model. Finding a repo's Node version by hand takes longer than 21 seconds.</p>
+<p><strong>The follow-up was the cheapest answer, even though it sent more tokens.</strong> OpenAI charges a tenth of the price for input it has seen recently. TrueForge resends the conversation in the same order every time, so 1,408 of the follow-up's 1,545 input tokens hit that discount. On long chats, that adds up.</p>
+<p><strong>The model matters more than the tool.</strong> gpt-5.4 costs $2.50 per million input tokens, more than three times the mini model's price. Choose the cheapest model that gets the job right, and switch on only the connectors a chat needs.</p>
+<p>Those are single questions. For bigger jobs, the harness itself starts to move the bill. TrueFoundry ran 14 multi-step tasks across three MCP servers on the same model (Claude Opus 4.8) in three harnesses. These are their numbers, not mine:</p>
+<div class="table-wrap"><table><thead><tr><th>Harness</th><th>Cost per run</th><th>Tokens per run</th></tr></thead><tbody><tr><td>TrueForge</td><td>$8.50</td><td>3.8M</td></tr><tr><td>Claude Managed Agents</td><td>$11.80</td><td>10M</td></tr><tr><td>deepagents</td><td>$21.00</td><td>16.5M</td></tr></tbody></table></div>
+<p>According to their <a href="https://www.truefoundry.com/blog/best-open-source-agent-harness">comparison post</a>, accuracy was roughly a tie, because the model sets the ceiling. What differed was how much each harness re-sent on every step. Swapping TrueForge to GLM-5.2 brought it down to $2.90 per run. Their numbers come from TrueFoundry testing its own product, so read the methodology before you lean on them.</p>
+</section>
+<section id="what-i-d-watch-out-for"><h2>What I'd watch out for</h2>
+<ul><li><strong>Code execution was off on my Mac.</strong> TrueForge's local sandbox needs a real Python 3. On a Mac, <code>/usr/bin/python3</code> is Apple's Xcode stub, so the sandbox wouldn't start. Nothing in this guide runs code, but agents that write and run their own scripts will need more setup. I haven't tested whether installing Python fixes it.</li><li><strong>There's no login in local mode.</strong> Keep the default <code>localhost</code>. Don't open the port to your network.</li><li><strong>The model doesn't know what the harness does.</strong> It said my CSV wasn't stored when it was. Ask TrueForge's screens, logs and API what happened, not the model.</li><li><strong>It's young.</strong> TrueFoundry's own comparison calls TrueForge "the youngest project" in its list and says its third-party ecosystem is thin next to opencode's.</li></ul>
+</section>
+<section id="where-to-go-next"><h2>Where to go next</h2>
+<ul><li><strong>Just exploring?</strong> Try another no-login connector. <strong>exa</strong> and <strong>parallel-web</strong> add web search, and both are marked <strong>No Auth</strong> in Connectors.</li><li><strong>Have a task you repeat every week?</strong> Give the agent a job, not a question. Connect GitHub, Linear, Notion or Sentry, ask it to do the lookup you do by hand, and time both.</li><li><strong>Need it for a team?</strong> Local mode isn't that. According to TrueFoundry, there's a documented path to Docker Compose and Helm with login. I haven't tried it.</li></ul>
+<p><em>Tested on a MacBook (macOS 27.2.1, Apple silicon) with Node.js 26.13.0 and gpt-5.4-mini. Prices from OpenAI's gpt-5.4-mini model page, checked November 23, 2026. The <a href="evidence/macbook-run/README.md">run notes</a> have the raw logs.</em></p>
+</section>
+<section id="learn-more"><h2>Learn more</h2>
+<ul><li><a href="https://trueforge.dev/harness/initial-setup">TrueForge initial setup guide</a>: model providers, MCP servers, memory, skills and sandbox providers.</li><li><a href="https://www.truefoundry.com/blog/best-open-source-agent-harness">Best open source agent harness: top 5 compared</a>: how TrueForge stacks up against opencode, Pi, OpenHands and deepagents.</li></ul>
+</section>
+</article>
+<aside class="toc" aria-label="Table of contents" data-mobile-expanded><div class="toc-card">
+<button class="toc-head" type="button" aria-expanded="true">Table of Contents <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 9.5 7 4.5l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<ol><li><a href="#is-this-for-you">Is this for you?</a></li><li><a href="#before-you-start">Before you start</a></li><li><a href="#1-start-trueforge">1. Start TrueForge</a></li><li><a href="#2-connect-a-model">2. Connect a model</a></li><li><a href="#3-give-the-agent-a-tool">3. Give the agent a tool</a></li><li><a href="#4-check-what-it-remembers">4. Check what it remembers</a></li><li><a href="#5-restart-and-get-it-all-back">5. Restart and get it all back</a></li><li><a href="#what-it-costs-and-how-fast-it-is">What it costs, and how fast it is</a></li><li><a href="#what-i-d-watch-out-for">What I'd watch out for</a></li><li><a href="#where-to-go-next">Where to go next</a></li><li><a href="#learn-more">Learn more</a></li></ol></div></aside>
+</div>
+<script>
+(function () {
+  document.querySelectorAll('.code').forEach(function (block) {
+    var btn = block.querySelector('.copy'), pre = block.querySelector('pre');
+    btn.addEventListener('click', function () {
+      var done = function (t) { btn.textContent = t; setTimeout(function () { btn.textContent = 'Copy'; }, 1500); };
+      try {
+        navigator.clipboard.writeText(pre.innerText).then(function () { done('Copied'); }, function () { done('Copy failed'); });
+      } catch (e) { done('Copy failed'); }
+    });
+  });
+  var toc = document.querySelector('.toc');
+  if (!toc) return;
+  if (!toc.hasAttribute('data-mobile-expanded') && window.matchMedia('(max-width: 1100px)').matches) {
+    toc.classList.add('collapsed');
+    toc.querySelector('.toc-head').setAttribute('aria-expanded', 'false');
+  }
+  toc.querySelector('.toc-head').addEventListener('click', function () {
+    var c = toc.classList.toggle('collapsed');
+    this.setAttribute('aria-expanded', String(!c));
+  });
+  var links = [].slice.call(document.querySelectorAll('.toc a')), map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && map[en.target.id]) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          map[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) obs.observe(s); });
+  }
+})();
+</script>
+</body></html>

@@ -1,0 +1,19 @@
+{
+  "name": "startup-log-reviewer",
+  "description": "Reviews startup logs and distinguishes observations from checks still needed.",
+  "manifest": {
+    "model": { "name": "openai/gpt-5-4-mini" },
+    "instructions": "Review application startup logs. Separate observations from unknowns.\nQuote the line supporting each observation. Do not infer successful model\nrequests or code execution from an HTTP listener. End with three next checks.",
+    "mcp_servers": [],
+    "skills": [],
+    "config": {
+      "iteration_limit": 3,
+      "sandbox": { "enabled": false },
+      "dynamic_sub_agents": { "enabled": false },
+      "generative_ui": { "enabled": false },
+      "ask_user_questions": { "enabled": false },
+      "web_search": { "enabled": false },
+      "memory": { "enabled": false }
+    }
+  }
+}

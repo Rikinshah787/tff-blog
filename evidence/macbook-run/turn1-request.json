@@ -1,0 +1,9 @@
+{
+  "input": [
+    {
+      "type": "user.message",
+      "content": "What does this startup output establish, and what remains unverified?\n\nStandalone mode: executor peering disabled and Redis unused\nAuth is disabled; browser login is off\nAgent server listening on http://127.0.0.1:8790 (docs at /api/v1/docs)"
+    }
+  ],
+  "stream": false
+}
